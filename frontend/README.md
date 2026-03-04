@@ -1,17 +1,171 @@
-# frontend
+# Frontend Architecture (Flutter Web)
 
-A new Flutter project.
+## Overview
 
-## Getting Started
+The frontend is built using **Flutter Web** and provides the user interface for interacting with the AI questionnaire system.
 
-This project is a starting point for a Flutter application.
+Users can:
 
-A few resources to get you started if this is your first Flutter project:
+* sign up
+* log in
+* upload documents
+* generate answers
+* review answers
+* export documents
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Frontend Architecture
+
+```
+Flutter UI
+   │
+   ▼
+API Service
+   │
+   ▼
+FastAPI Backend
+```
+
+---
+
+# Folder Structure
+
+```
+lib/
+│
+├── services/
+│     api_service.dart
+│
+├── models/
+│     answer_model.dart
+│
+├── screens/
+│     login_screen.dart
+│     signup_screen.dart
+│     dashboard_screen.dart
+│     upload_screen.dart
+│     review_screen.dart
+│
+└── widgets/
+      primary_button.dart
+```
+
+---
+
+# Screen Flow
+
+```
+Login
+ │
+ ▼
+Dashboard
+ │
+ ├── Upload Documents
+ ├── Generate Answers
+ ├── Review Answers
+ └── Export Document
+```
+
+---
+
+# API Communication
+
+All HTTP calls are centralized in:
+
+```
+api_service.dart
+```
+
+Example endpoints:
+
+```
+POST /auth/signup
+POST /auth/login
+POST /upload/reference
+POST /upload/questionnaire
+POST /rag/generate
+GET  /review/{id}
+PATCH /review/{id}
+POST /export/{id}
+```
+
+---
+
+# Authentication Flow
+
+```
+Login
+  │
+  ▼
+Receive JWT
+  │
+  ▼
+Store in SharedPreferences
+  │
+  ▼
+Attach token to requests
+```
+
+---
+
+# Document Upload Flow
+
+```
+User Selects PDF
+       │
+       ▼
+File Picker
+       │
+       ▼
+Multipart Request
+       │
+       ▼
+Backend Upload
+```
+
+---
+
+# Local Setup
+
+Install dependencies
+
+```
+flutter pub get
+```
+
+Run web version
+
+```
+flutter run -d chrome
+```
+
+---
+
+# Build Production
+
+```
+flutter build web
+```
+
+---
+
+# Deployment
+
+Frontend is hosted using **Firebase Hosting**.
+
+Deployment steps:
+
+```
+flutter build web
+firebase deploy
+```
+
+---
+
+# Future Improvements
+
+* better UI styling
+* document preview
+* progress indicators
+* better error handling
