@@ -21,7 +21,7 @@ The goal of the project is to demonstrate how **AI systems can automate document
 Frontend (Flutter Web):
 
 ```
-https://YOUR_FIREBASE_URL.web.app
+https://fir-assignment-9664c.web.app
 ```
 
 Backend API Docs:
@@ -33,7 +33,7 @@ https://almabase-assignment-2rtk.onrender.com/docs
 GitHub Repository:
 
 ```
-https://github.com/YOUR_USERNAME/almabase-assignment
+https://github.com/Sambhav0707/Almabase_assignment
 ```
 
 ---
