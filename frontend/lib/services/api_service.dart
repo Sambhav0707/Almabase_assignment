@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
   // Use localhost for web/desktop, change to 10.0.2.2 for Android emulator
-  static const String baseUrl = 'http://localhost:8000';
+  static const String baseUrl = 'https://almabase-assignment-1-06xw.onrender.com';
   static const String _tokenKey = 'jwt_token';
   static const String _questionnaireIdKey = 'active_questionnaire_id';
 
