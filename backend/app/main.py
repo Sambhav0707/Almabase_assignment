@@ -27,7 +27,9 @@ app.add_middleware(
 )
 
 # ── Static files for exports ─────────────────────────────────
+os.makedirs("uploads", exist_ok=True)
 os.makedirs("exports", exist_ok=True)
+os.makedirs("chroma_data", exist_ok=True)
 
 app.include_router(auth.router)
 app.include_router(upload.router)
